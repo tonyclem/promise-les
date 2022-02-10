@@ -4,19 +4,7 @@
 
 // It’ll be easier to understand the concept of JavaScript promises through an analogy.
 
-// let completed = true;
-
-// let learnJS = new Promise(function (resolve, reject) {
-//   if (completed) {
-//     resolve("I have completed learning JS.");
-//   } else {
-//     reject("I haven't completed learning JS yet.");
-//   }
-//   return completed();
-// });
-// learnJS();
-
-// Example 2
+// Example 1
 let completed = true;
 
 let learnJS = new Promise(function (resolve, reject) {
@@ -26,7 +14,25 @@ let learnJS = new Promise(function (resolve, reject) {
     } else {
       reject("I haven't completed learning JS yet.");
     }
-  }, 3 * 1000);
+  }, 1000);
 });
 
 console.log(learnJS);
+
+// Example 2
+function onSucces() {
+  console.log("Success!");
+}
+
+function onError() {
+  console.log("ooops Sorry Error");
+}
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // console.log()
+    resolve();
+  }, 2000);
+});
+
+promise.then(onSucces);
+promise.catch(onError);
